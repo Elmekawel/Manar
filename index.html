@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -20,43 +18,17 @@ box-sizing:border-box;
 
 body{
 
-font-family:'Cinzel',serif;
-color:white;
-
 height:100vh;
-
 display:flex;
 justify-content:center;
 align-items:center;
 
-background:radial-gradient(circle at top,#1b2735,#090a0f);
+font-family:'Cinzel',serif;
+
+background:radial-gradient(circle at top,#1a2a3a,#0b1320);
 
 overflow:hidden;
-
-}
-
-/* stars */
-
-.star{
-
-position:absolute;
-width:2px;
-height:2px;
-
-background:#FFD700;
-
-border-radius:50%;
-
-opacity:.8;
-
-animation:twinkle 4s infinite;
-
-}
-
-@keyframes twinkle{
-
-0%,100%{opacity:.2}
-50%{opacity:1}
+color:white;
 
 }
 
@@ -65,23 +37,38 @@ animation:twinkle 4s infinite;
 .moon{
 
 position:absolute;
-
 top:80px;
-right:120px;
+right:100px;
 
-font-size:140px;
+font-size:120px;
 
 color:#FFD700;
 
-animation:float 6s ease-in-out infinite;
+opacity:.9;
 
 }
 
-@keyframes float{
+/* stars */
 
-0%{transform:translateY(0)}
-50%{transform:translateY(-15px)}
-100%{transform:translateY(0)}
+.star{
+
+position:absolute;
+width:3px;
+height:3px;
+
+background:#FFD700;
+
+border-radius:50%;
+
+animation:twinkle 3s infinite;
+
+}
+
+@keyframes twinkle{
+
+0%,100%{opacity:.2}
+
+50%{opacity:1}
 
 }
 
@@ -91,8 +78,8 @@ animation:float 6s ease-in-out infinite;
 
 text-align:center;
 
-width:92%;
 max-width:900px;
+width:92%;
 
 padding:60px 40px;
 
@@ -100,9 +87,9 @@ border-radius:25px;
 
 background:rgba(255,255,255,.05);
 
-backdrop-filter:blur(15px);
+backdrop-filter:blur(12px);
 
-box-shadow:0 0 80px rgba(0,0,0,.8);
+box-shadow:0 0 80px rgba(0,0,0,.7);
 
 animation:fade 2s;
 
@@ -129,7 +116,7 @@ line-height:1.8;
 
 color:#FFD700;
 
-margin-bottom:40px;
+margin-bottom:35px;
 
 }
 
@@ -151,33 +138,16 @@ margin-bottom:10px;
 
 .names{
 
-font-size:55px;
+font-size:50px;
 
-margin:20px 0;
-
-border:2px solid rgba(255,215,0,.4);
-
-padding:20px;
-
-border-radius:15px;
+margin:15px 0;
 
 }
 
-/* photo */
+.symbol{
 
-.photo{
-
-margin:25px auto;
-
-width:160px;
-height:160px;
-
-border-radius:50%;
-
-border:3px solid gold;
-
-background-size:cover;
-background-position:center;
+font-size:40px;
+color:#FFD700;
 
 }
 
@@ -185,7 +155,7 @@ background-position:center;
 
 .details{
 
-margin-top:20px;
+margin-top:25px;
 
 font-size:22px;
 
@@ -199,6 +169,14 @@ font-size:26px;
 
 }
 
+.location{
+
+margin-top:10px;
+
+}
+
+/* button */
+
 .map-btn{
 
 margin-top:25px;
@@ -209,7 +187,7 @@ padding:14px 35px;
 
 background:#FFD700;
 
-color:black;
+color:#000;
 
 border-radius:30px;
 
@@ -263,8 +241,6 @@ display:block;
 
 }
 
-/* footer */
-
 .footer{
 
 margin-top:30px;
@@ -280,13 +256,12 @@ opacity:.8;
 @media(max-width:768px){
 
 .title{font-size:45px}
-.names{font-size:34px}
+.names{font-size:32px}
 .ayah{font-size:20px}
 
 }
 
 </style>
-
 </head>
 
 <body>
@@ -301,31 +276,19 @@ opacity:.8;
 
 </div>
 
-<div class="title">
-
-Wedding Invitation
-
-</div>
-
-<div class="photo"
-style="background-image:url('https://i.imgur.com/8Km9tLL.jpg')">
-</div>
+<div class="title">Wedding Invitation</div>
 
 <div class="names">
 
-Ali ☾ Manar
+Ali <span class="symbol">☾</span> Manar
 
 </div>
 
 <div class="details">
 
-<div class="date">
+<div class="date">11 April 2026</div>
 
-11 April 2026
-
-</div>
-
-<div>
+<div class="location">
 
 Salamlek Hall<br>
 Tulip Hotel – Beni Suef
@@ -344,26 +307,20 @@ View Location
 
 <div class="countdown">
 
-<div class="box"><span id="days"></span>Days</div>
-<div class="box"><span id="hours"></span>Hours</div>
-<div class="box"><span id="minutes"></span>Minutes</div>
-<div class="box"><span id="seconds"></span>Seconds</div>
+<div class="box"><span id="days">0</span>Days</div>
+<div class="box"><span id="hours">0</span>Hours</div>
+<div class="box"><span id="minutes">0</span>Minutes</div>
+<div class="box"><span id="seconds">0</span>Seconds</div>
 
 </div>
 
 <div class="footer">
 
-ننتظر حضوركم لمشاركتنا فرحتنا
+نسعد بحضوركم ومشاركتكم فرحتنا
 
 </div>
 
 </div>
-
-<audio autoplay loop>
-
-<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_9a1c5f6f03.mp3">
-
-</audio>
 
 <script>
 
@@ -384,10 +341,9 @@ document.getElementById("seconds").innerHTML=Math.floor((distance%(1000*60))/100
 
 },1000);
 
-
 /* stars */
 
-for(let i=0;i<120;i++){
+for(let i=0;i<80;i++){
 
 const star=document.createElement("div");
 
@@ -396,7 +352,7 @@ star.className="star";
 star.style.left=Math.random()*100+"%";
 star.style.top=Math.random()*100+"%";
 
-star.style.animationDelay=Math.random()*4+"s";
+star.style.animationDelay=Math.random()*3+"s";
 
 document.body.appendChild(star);
 
