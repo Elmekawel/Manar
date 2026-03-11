@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,52 +20,18 @@ box-sizing:border-box;
 
 body{
 
+font-family:'Cinzel',serif;
+color:white;
+
 height:100vh;
+
 display:flex;
 justify-content:center;
 align-items:center;
 
-font-family:'Cinzel',serif;
-
 background:radial-gradient(circle at top,#1b2735,#090a0f);
 
 overflow:hidden;
-color:white;
-
-}
-
-/* moon */
-
-.moon{
-
-position:absolute;
-top:80px;
-right:120px;
-
-font-size:140px;
-
-color:#FFD700;
-
-opacity:.9;
-
-}
-
-/* mosque silhouette */
-
-.mosque{
-
-position:absolute;
-
-bottom:0;
-left:0;
-
-width:100%;
-
-height:200px;
-
-background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
-
-opacity:.5;
 
 }
 
@@ -72,15 +40,16 @@ opacity:.5;
 .star{
 
 position:absolute;
-
-width:3px;
-height:3px;
+width:2px;
+height:2px;
 
 background:#FFD700;
 
 border-radius:50%;
 
-animation:twinkle 3s infinite;
+opacity:.8;
+
+animation:twinkle 4s infinite;
 
 }
 
@@ -91,14 +60,39 @@ animation:twinkle 3s infinite;
 
 }
 
-/* invitation card */
+/* moon */
+
+.moon{
+
+position:absolute;
+
+top:80px;
+right:120px;
+
+font-size:140px;
+
+color:#FFD700;
+
+animation:float 6s ease-in-out infinite;
+
+}
+
+@keyframes float{
+
+0%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+100%{transform:translateY(0)}
+
+}
+
+/* card */
 
 .container{
 
 text-align:center;
 
-max-width:900px;
 width:92%;
+max-width:900px;
 
 padding:60px 40px;
 
@@ -106,7 +100,7 @@ border-radius:25px;
 
 background:rgba(255,255,255,.05);
 
-backdrop-filter:blur(14px);
+backdrop-filter:blur(15px);
 
 box-shadow:0 0 80px rgba(0,0,0,.8);
 
@@ -135,7 +129,7 @@ line-height:1.8;
 
 color:#FFD700;
 
-margin-bottom:35px;
+margin-bottom:40px;
 
 }
 
@@ -157,16 +151,33 @@ margin-bottom:10px;
 
 .names{
 
-font-size:52px;
+font-size:55px;
 
-margin:15px 0;
+margin:20px 0;
+
+border:2px solid rgba(255,215,0,.4);
+
+padding:20px;
+
+border-radius:15px;
 
 }
 
-.symbol{
+/* photo */
 
-font-size:42px;
-color:#FFD700;
+.photo{
+
+margin:25px auto;
+
+width:160px;
+height:160px;
+
+border-radius:50%;
+
+border:3px solid gold;
+
+background-size:cover;
+background-position:center;
 
 }
 
@@ -174,7 +185,7 @@ color:#FFD700;
 
 .details{
 
-margin-top:25px;
+margin-top:20px;
 
 font-size:22px;
 
@@ -188,14 +199,6 @@ font-size:26px;
 
 }
 
-.location{
-
-margin-top:10px;
-
-}
-
-/* map button */
-
 .map-btn{
 
 margin-top:25px;
@@ -206,7 +209,7 @@ padding:14px 35px;
 
 background:#FFD700;
 
-color:#000;
+color:black;
 
 border-radius:30px;
 
@@ -260,6 +263,8 @@ display:block;
 
 }
 
+/* footer */
+
 .footer{
 
 margin-top:30px;
@@ -275,7 +280,7 @@ opacity:.8;
 @media(max-width:768px){
 
 .title{font-size:45px}
-.names{font-size:32px}
+.names{font-size:34px}
 .ayah{font-size:20px}
 
 }
@@ -296,11 +301,19 @@ opacity:.8;
 
 </div>
 
-<div class="title">Wedding Invitation</div>
+<div class="title">
+
+Wedding Invitation
+
+</div>
+
+<div class="photo"
+style="background-image:url('https://i.imgur.com/8Km9tLL.jpg')">
+</div>
 
 <div class="names">
 
-Ali <span class="symbol">☾</span> Manar
+Ali ☾ Manar
 
 </div>
 
@@ -312,7 +325,7 @@ Ali <span class="symbol">☾</span> Manar
 
 </div>
 
-<div class="location">
+<div>
 
 Salamlek Hall<br>
 Tulip Hotel – Beni Suef
@@ -331,26 +344,24 @@ View Location
 
 <div class="countdown">
 
-<div class="box"><span id="days">0</span>Days</div>
-<div class="box"><span id="hours">0</span>Hours</div>
-<div class="box"><span id="minutes">0</span>Minutes</div>
-<div class="box"><span id="seconds">0</span>Seconds</div>
+<div class="box"><span id="days"></span>Days</div>
+<div class="box"><span id="hours"></span>Hours</div>
+<div class="box"><span id="minutes"></span>Minutes</div>
+<div class="box"><span id="seconds"></span>Seconds</div>
 
 </div>
 
 <div class="footer">
 
-نسعد بحضوركم ومشاركتكم فرحتنا
+ننتظر حضوركم لمشاركتنا فرحتنا
 
 </div>
 
 </div>
-
-<div class="mosque"></div>
 
 <audio autoplay loop>
 
-<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_9a1c5f6f03.mp3" type="audio/mp3">
+<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_9a1c5f6f03.mp3">
 
 </audio>
 
@@ -373,9 +384,10 @@ document.getElementById("seconds").innerHTML=Math.floor((distance%(1000*60))/100
 
 },1000);
 
+
 /* stars */
 
-for(let i=0;i<90;i++){
+for(let i=0;i<120;i++){
 
 const star=document.createElement("div");
 
@@ -384,7 +396,7 @@ star.className="star";
 star.style.left=Math.random()*100+"%";
 star.style.top=Math.random()*100+"%";
 
-star.style.animationDelay=Math.random()*3+"s";
+star.style.animationDelay=Math.random()*4+"s";
 
 document.body.appendChild(star);
 
