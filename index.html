@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,33 +20,87 @@ box-sizing:border-box;
 
 body{
 
+font-family:'Cinzel',serif;
+
+background:radial-gradient(circle at top,#1b2735,#090a0f);
+
+color:white;
+
 height:100vh;
+
 display:flex;
 justify-content:center;
 align-items:center;
 
-font-family:'Cinzel',serif;
-
-background:radial-gradient(circle at top,#1a2a3a,#0b1320);
-
 overflow:hidden;
-color:white;
 
 }
 
-/* moon */
+/* opening screen */
 
-.moon{
+.open-screen{
 
 position:absolute;
-top:80px;
-right:100px;
 
-font-size:120px;
+width:100%;
+height:100%;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+background:#090a0f;
+
+z-index:10;
+
+}
+
+.open-btn{
+
+margin-top:30px;
+
+padding:15px 40px;
+
+background:#FFD700;
+
+border:none;
+
+font-size:20px;
+
+border-radius:40px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.open-btn:hover{
+
+transform:scale(1.1);
+
+}
+
+/* ring animation */
+
+.ring{
+
+font-size:90px;
 
 color:#FFD700;
 
-opacity:.9;
+margin-top:20px;
+
+animation:ring 2s infinite;
+
+}
+
+@keyframes ring{
+
+0%{transform:rotate(-10deg)}
+50%{transform:rotate(10deg)}
+100%{transform:rotate(-10deg)}
 
 }
 
@@ -53,22 +109,37 @@ opacity:.9;
 .star{
 
 position:absolute;
-width:3px;
-height:3px;
+
+width:2px;
+height:2px;
 
 background:#FFD700;
 
 border-radius:50%;
 
-animation:twinkle 3s infinite;
+animation:twinkle 4s infinite;
 
 }
 
 @keyframes twinkle{
 
 0%,100%{opacity:.2}
-
 50%{opacity:1}
+
+}
+
+/* moon */
+
+.moon{
+
+position:absolute;
+
+top:80px;
+right:120px;
+
+font-size:140px;
+
+color:#FFD700;
 
 }
 
@@ -76,10 +147,12 @@ animation:twinkle 3s infinite;
 
 .container{
 
+display:none;
+
 text-align:center;
 
-max-width:900px;
 width:92%;
+max-width:900px;
 
 padding:60px 40px;
 
@@ -87,18 +160,9 @@ border-radius:25px;
 
 background:rgba(255,255,255,.05);
 
-backdrop-filter:blur(12px);
+backdrop-filter:blur(15px);
 
-box-shadow:0 0 80px rgba(0,0,0,.7);
-
-animation:fade 2s;
-
-}
-
-@keyframes fade{
-
-from{opacity:0;transform:translateY(40px)}
-to{opacity:1;transform:translateY(0)}
+box-shadow:0 0 80px rgba(0,0,0,.8);
 
 }
 
@@ -116,7 +180,7 @@ line-height:1.8;
 
 color:#FFD700;
 
-margin-bottom:35px;
+margin-bottom:40px;
 
 }
 
@@ -130,56 +194,39 @@ font-size:70px;
 
 color:#FFD700;
 
-margin-bottom:10px;
-
 }
 
 /* names */
 
 .names{
 
-font-size:50px;
+font-size:55px;
 
-margin:15px 0;
+margin:25px 0;
 
-}
+border:2px solid rgba(255,215,0,.4);
 
-.symbol{
+padding:20px;
 
-font-size:40px;
-color:#FFD700;
+border-radius:15px;
 
 }
 
 /* details */
 
-.details{
-
-margin-top:25px;
-
-font-size:22px;
-
-}
-
 .date{
-
-color:#FFD700;
 
 font-size:26px;
 
-}
-
-.location{
+color:#FFD700;
 
 margin-top:10px;
 
 }
 
-/* button */
-
 .map-btn{
 
-margin-top:25px;
+margin-top:20px;
 
 display:inline-block;
 
@@ -187,21 +234,13 @@ padding:14px 35px;
 
 background:#FFD700;
 
-color:#000;
+color:black;
 
 border-radius:30px;
 
 font-weight:bold;
 
 text-decoration:none;
-
-transition:.3s;
-
-}
-
-.map-btn:hover{
-
-transform:scale(1.1);
 
 }
 
@@ -241,16 +280,6 @@ display:block;
 
 }
 
-.footer{
-
-margin-top:30px;
-
-font-size:18px;
-
-opacity:.8;
-
-}
-
 /* mobile */
 
 @media(max-width:768px){
@@ -262,13 +291,37 @@ opacity:.8;
 }
 
 </style>
+
 </head>
 
 <body>
 
+<!-- opening screen -->
+
+<div class="open-screen" id="openScreen">
+
+<h1 style="font-family:Great Vibes;font-size:60px;color:#FFD700">
+
+Ali & Manar
+
+</h1>
+
+<div class="ring">💍</div>
+
+<button class="open-btn" onclick="openInvitation()">
+
+Open Invitation
+
+</button>
+
+</div>
+
+
 <div class="moon">☾</div>
 
-<div class="container">
+<!-- invitation -->
+
+<div class="container" id="invitation">
 
 <div class="ayah">
 
@@ -276,19 +329,25 @@ opacity:.8;
 
 </div>
 
-<div class="title">Wedding Invitation</div>
+<div class="title">
 
-<div class="names">
-
-Ali <span class="symbol">☾</span> Manar
+Wedding Invitation
 
 </div>
 
-<div class="details">
+<div class="names">
 
-<div class="date">11 April 2026</div>
+Ali ☾ Manar
 
-<div class="location">
+</div>
+
+<div class="date">
+
+11 April 2026
+
+</div>
+
+<div>
 
 Salamlek Hall<br>
 Tulip Hotel – Beni Suef
@@ -303,26 +362,28 @@ View Location
 
 </a>
 
-</div>
-
 <div class="countdown">
 
-<div class="box"><span id="days">0</span>Days</div>
-<div class="box"><span id="hours">0</span>Hours</div>
-<div class="box"><span id="minutes">0</span>Minutes</div>
-<div class="box"><span id="seconds">0</span>Seconds</div>
-
-</div>
-
-<div class="footer">
-
-نسعد بحضوركم ومشاركتكم فرحتنا
+<div class="box"><span id="days"></span>Days</div>
+<div class="box"><span id="hours"></span>Hours</div>
+<div class="box"><span id="minutes"></span>Minutes</div>
+<div class="box"><span id="seconds"></span>Seconds</div>
 
 </div>
 
 </div>
 
 <script>
+
+/* open animation */
+
+function openInvitation(){
+
+document.getElementById("openScreen").style.display="none";
+
+document.getElementById("invitation").style.display="block";
+
+}
 
 /* countdown */
 
@@ -341,9 +402,10 @@ document.getElementById("seconds").innerHTML=Math.floor((distance%(1000*60))/100
 
 },1000);
 
+
 /* stars */
 
-for(let i=0;i<80;i++){
+for(let i=0;i<120;i++){
 
 const star=document.createElement("div");
 
@@ -351,8 +413,6 @@ star.className="star";
 
 star.style.left=Math.random()*100+"%";
 star.style.top=Math.random()*100+"%";
-
-star.style.animationDelay=Math.random()*3+"s";
 
 document.body.appendChild(star);
 
