@@ -6,106 +6,193 @@
 
 <title>Ali & Manar Wedding</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=Amiri&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Amiri&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
 
-*{margin:0;padding:0;box-sizing:border-box;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
 body{
+
 height:100vh;
-font-family:'Cinzel',serif;
 display:flex;
 justify-content:center;
 align-items:center;
-background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-color:white;
+
+font-family:'Cinzel',serif;
+
+background:radial-gradient(circle at top,#1a2a3a,#0b1320);
+
 overflow:hidden;
+color:white;
+
 }
+
+/* moon */
+
+.moon{
+
+position:absolute;
+top:80px;
+right:100px;
+
+font-size:120px;
+
+color:#FFD700;
+
+opacity:.9;
+
+}
+
+/* stars */
+
+.star{
+
+position:absolute;
+width:3px;
+height:3px;
+
+background:#FFD700;
+
+border-radius:50%;
+
+animation:twinkle 3s infinite;
+
+}
+
+@keyframes twinkle{
+
+0%,100%{opacity:.2}
+
+50%{opacity:1}
+
+}
+
+/* card */
 
 .container{
+
 text-align:center;
+
 max-width:900px;
-width:95%;
+width:92%;
+
 padding:60px 40px;
+
 border-radius:25px;
 
-background:rgba(0,0,0,0.45);
-backdrop-filter:blur(15px);
+background:rgba(255,255,255,.05);
 
-box-shadow:0 0 60px rgba(0,0,0,0.8);
+backdrop-filter:blur(12px);
 
-animation:fadeIn 2s;
+box-shadow:0 0 80px rgba(0,0,0,.7);
+
+animation:fade 2s;
+
 }
 
-@keyframes fadeIn{
+@keyframes fade{
+
 from{opacity:0;transform:translateY(40px)}
 to{opacity:1;transform:translateY(0)}
+
 }
+
+/* ayah */
 
 .ayah{
+
 font-family:'Amiri',serif;
-font-size:26px;
-line-height:1.8;
-color:#FFD700;
-margin-bottom:35px;
+
 direction:rtl;
+
+font-size:26px;
+
+line-height:1.8;
+
+color:#FFD700;
+
+margin-bottom:35px;
+
 }
+
+/* title */
 
 .title{
+
 font-family:'Great Vibes',cursive;
+
 font-size:70px;
+
 color:#FFD700;
+
 margin-bottom:10px;
+
 }
 
-.subtitle{
-font-size:22px;
-letter-spacing:3px;
-margin-bottom:30px;
-opacity:.9;
-}
+/* names */
 
 .names{
+
 font-size:50px;
-margin:20px 0;
+
+margin:15px 0;
+
 }
 
 .symbol{
-color:#FFD700;
+
 font-size:40px;
-margin:0 10px;
+color:#FFD700;
+
 }
 
+/* details */
+
 .details{
-margin-top:20px;
+
+margin-top:25px;
+
 font-size:22px;
+
 }
 
 .date{
+
 color:#FFD700;
+
 font-size:26px;
-margin-top:10px;
+
 }
 
 .location{
+
 margin-top:10px;
-font-size:20px;
+
 }
+
+/* button */
 
 .map-btn{
 
 margin-top:25px;
+
 display:inline-block;
 
 padding:14px 35px;
 
 background:#FFD700;
+
 color:#000;
 
 border-radius:30px;
 
 font-weight:bold;
+
 text-decoration:none;
 
 transition:.3s;
@@ -113,38 +200,58 @@ transition:.3s;
 }
 
 .map-btn:hover{
+
 transform:scale(1.1);
+
 }
+
+/* countdown */
 
 .countdown{
 
 margin-top:40px;
+
 display:flex;
+
 justify-content:center;
+
 gap:20px;
+
 flex-wrap:wrap;
 
 }
 
 .box{
 
-background:rgba(255,255,255,0.08);
-padding:18px 20px;
-border-radius:12px;
+background:rgba(255,255,255,.08);
+
+padding:18px 22px;
+
+border-radius:10px;
 
 }
 
 .box span{
+
 font-size:32px;
+
 color:#FFD700;
+
 display:block;
+
 }
 
 .footer{
-margin-top:35px;
+
+margin-top:30px;
+
 font-size:18px;
+
 opacity:.8;
+
 }
+
+/* mobile */
 
 @media(max-width:768px){
 
@@ -155,23 +262,26 @@ opacity:.8;
 }
 
 </style>
-
 </head>
 
 <body>
 
+<div class="moon">☾</div>
+
 <div class="container">
 
 <div class="ayah">
+
 وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً
+
 </div>
 
 <div class="title">Wedding Invitation</div>
 
-<div class="subtitle">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</div>
-
 <div class="names">
+
 Ali <span class="symbol">☾</span> Manar
+
 </div>
 
 <div class="details">
@@ -179,8 +289,10 @@ Ali <span class="symbol">☾</span> Manar
 <div class="date">11 April 2026</div>
 
 <div class="location">
+
 Salamlek Hall<br>
 Tulip Hotel – Beni Suef
+
 </div>
 
 <a class="map-btn"
@@ -212,6 +324,8 @@ View Location
 
 <script>
 
+/* countdown */
+
 const weddingDate=new Date("April 11, 2026 19:00:00").getTime();
 
 setInterval(()=>{
@@ -226,6 +340,23 @@ document.getElementById("minutes").innerHTML=Math.floor((distance%(1000*60*60))/
 document.getElementById("seconds").innerHTML=Math.floor((distance%(1000*60))/1000);
 
 },1000);
+
+/* stars */
+
+for(let i=0;i<80;i++){
+
+const star=document.createElement("div");
+
+star.className="star";
+
+star.style.left=Math.random()*100+"%";
+star.style.top=Math.random()*100+"%";
+
+star.style.animationDelay=Math.random()*3+"s";
+
+document.body.appendChild(star);
+
+}
 
 </script>
 
